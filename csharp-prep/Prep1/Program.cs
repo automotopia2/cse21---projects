@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        // James Bond name display
+        // JAMES BOND NAME DISPLAY
 
 
         // Console.Write("What is your first name? ");
@@ -48,8 +48,10 @@ class Program
         {
             Letter = "F";
         }
-        Console.Write($"Your letter grade is {Letter}. ");
 
+        // Print letter grade, then print pass or fail
+        Console.Write($"Your letter grade is {Letter}. ");
+        
         if (gradeNum >= 70)
         {
             Console.WriteLine("You passed the class!");
