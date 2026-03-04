@@ -1,0 +1,55 @@
+@startuml
+
+Class Journal 
+{
+- _entries : List <Entry>
+--
++ LoadFromFile(filename) : void
++ SaveToFile(filename) : void
++ DeleteEntry(EntryIndex) : void
++ DisplayEntries() : void
++ AddEntries(entry) : void
+--
++Journal()
+}
+
+class Entry
+{
+-_response : str
+-_date : int
+-_prompt : str
+--
++Display(int date, str prompt, str response) : void
++Entry () : void
++GetPrompt() : str
++GetResponse() : void
+}
+
+class PromptGen
+{
+-_prompt : str
+-_random : Random
+--
++GetPrompt() : str
++PromptGen()
+}
+
+class Program
+{
+--
++Write() : void
++Display() : void
++Load() : void
++Save() : void
++Delete() : void
++Quit() : void
+}
+
+Journal -* Entry
+Entry -* PromptGen
+Program -> PromptGen
+Program -> Entry
+Program -> Journal
+
+
+@enduml

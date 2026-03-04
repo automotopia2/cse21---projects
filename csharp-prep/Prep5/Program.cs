@@ -54,5 +54,4 @@ class Program
         Console.WriteLine($"{name}, the square of your number is {num_square}.");
         Console.Write($"{name}, you will turn {age} this year.");
     }
-
 }

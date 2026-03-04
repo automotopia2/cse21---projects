@@ -1,0 +1,22 @@
+namespace MyProject;
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks.Dataflow;
+
+
+public class Assignment
+{
+    private string _studentName;
+    private string _topic;
+
+
+    public Assignment(string studentName, string topic)
+    {
+        _studentName = studentName;
+        _topic = topic;
+    }
+    public string GetTopic()
+    {
+        
+    }
+}

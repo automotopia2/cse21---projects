@@ -1,0 +1,27 @@
+Question: 
+
+    What is version control and why is it important?
+
+Answer:
+
+    What is version control?
+        Version control is the ability to have one file that continuosly gets updated by
+        other people. In version control, there is one uploaded uploaded to a cloud where
+        multiple people have access to this file. Version control allows others to make 
+        a copy of this file without changing it. The people with a copy can work on their 
+        copy, then update the original file (located in the cloud) with the changes they made. 
+
+    How is it used in real world applications? 
+        In the world of programming, a person could use version control to enhance their team's 
+        ability to work on a project. In my Formula Hybrid college team, we use Git Hub version 
+        control to store an original version of the pedal position sensor program. Throughout the
+        week, my team and I work on our personal copies and continuously update the original 
+        version. 
+
+    What is the "git commit" command?
+        One of the main commands is called "git commit." Git commit allows the user to update
+        their copy of the project (on their personal computer) and commit a message with it 
+        explaining what they changed, updated, or fixed. This does not update or change the 
+        main file, but updates their version so it can be easily transferred to the main 
+        file located in the cloud. 
+

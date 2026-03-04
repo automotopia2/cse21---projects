@@ -1,0 +1,37 @@
+@startuml
+class Word 
+{
+- _text : str
+- _isHidden : bool
+- _random : Random
+--
++ Word(text) : setter
++ Hide() : setter
++ IsHidden : getter
+}
+
+class Reference
+{
+- _location : string
+- _text : string
+--
++ Reference(location, text)
+}
+
+class Scripture
+{
++ reference : Reference
++ text : List<Word>
+}
+
+class Program 
+{
++ Main() : Void
+}
+
+Program --* Scripture
+
+Scripture --* Reference
+Scripture --* Word
+
+@enduml

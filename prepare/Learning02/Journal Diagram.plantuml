@@ -1,0 +1,14 @@
+classDiagram
+    class Player {
+        +string Name
+        -int Health
+        +Attack()
+        +Move(int x, int y)
+    }
+
+    class Enemy {
+        +int Damage
+        +Bite()
+    }
+
+    Player --> Enemy : "Attacks"
