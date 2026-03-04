@@ -1,0 +1,42 @@
+@startuml
+abstract class Goal {
+  # _shortName : string
+  # _description : string
+  # _points : int
+  + Goal(name: string, desc: string, points: int)
+  + {abstract} RecordEvent() : void
+  + {abstract} IsComplete() : bool
+  + virtual GetDetailsString() : string
+  + virtual GetStringRepresentation() : string
+}
+
+class SimpleGoal {
+  - _isComplete : bool
+  + RecordEvent() : void
+  + IsComplete() : bool
+}
+
+class ChecklistGoal {
+  - _amountCompleted : int
+  - _target : int
+  - _bonus : int
+  + RecordEvent() : void
+  + IsComplete() : bool
+}
+
+class GoalManager {
+  - _goals : List<Goal>
+  - _score : int
+  + Start() : void
+  + DisplayPlayerInfo() : void
+  + CreateGoal() : void
+  + RecordEvent() : void
+  + SaveGoals() : void
+  + LoadGoals() : void
+}
+
+Goal <|-- SimpleGoal
+Goal <|-- EternalGoal
+Goal <|-- ChecklistGoal
+GoalManager o-- Goal
+@enduml
