@@ -1,6 +1,11 @@
-@startuml
+@startuml JournalProgram
 
-Class Journal 
+Class JProgram
+{
+    +Main() : void
+}
+
+Class Journal
 {
 - _entries : List <Entry>
 --
@@ -9,32 +14,29 @@ Class Journal
 + DeleteEntry(EntryIndex) : void
 + DisplayEntries() : void
 + AddEntries(entry) : void
---
-+Journal()
 }
 
 class Entry
 {
--_response : str
+-_response : string
 -_date : int
--_prompt : str
+-_prompt : string
 --
-+Display(int date, str prompt, str response) : void
++Display(int date, string prompt, string response) : void
 +Entry () : void
-+GetPrompt() : str
++GetPrompt() : string
 +GetResponse() : void
 }
 
 class PromptGen
 {
--_prompt : str
+-_prompt : string
 -_random : Random
 --
-+GetPrompt() : str
-+PromptGen()
++GetPrompt() : string
 }
 
-class Program
+class Menu
 {
 --
 +Write() : void
@@ -47,9 +49,9 @@ class Program
 
 Journal -* Entry
 Entry -* PromptGen
-Program -> PromptGen
-Program -> Entry
-Program -> Journal
+Menu -> PromptGen
+Menu -> Entry
+Menu -> Journal
 
 
 @enduml
