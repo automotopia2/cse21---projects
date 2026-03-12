@@ -1,17 +1,20 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
+using System.IO;
 
 // The menu with actions or choices you can make
 
 public class Menu
 {
     Journal _journal = new Journal();
+    string savedJournal = "SaveJournalFile.txt";
     private int _menuChoice;
     public int DisplayMenu()
     {
         Console.Write("Welcome to the journal! What would you like to do today? \n1) Create a new entry. \n2) Display your current entries.\n3) Load entries.\n4) Save entries.\n5) Delete entries.\n6) Exit journal.\nEnter the number correlating with your choice here: ");
         _menuChoice = int.Parse(Console.ReadLine());
+        Console.WriteLine();
         return _menuChoice;
     }
 
@@ -51,15 +54,18 @@ public class Menu
         }
         else if (menuChoice == 3) // Load Current Entries
         {
-            
+            _journal.LoadToFile(savedJournal);
         }
         else if (menuChoice == 4) // Save Current Entries 
         {
-            
+            _journal.SaveToFile(savedJournal);
         }
-        else if (menuChoice == 5) // Delete Current Entries 
+        else if (menuChoice == 5) // Delete Specific Entry
         {
-            
+            _journal.DisplayEntriesForDelete();
+            Console.Write("Please enter the number correlating with the entry you would like to delete here: ");
+            int journalIndex = int.Parse(Console.ReadLine()) -1;
+            _journal.DeleteEntry(journalIndex);
         }
         else if (menuChoice == 6) // Quit Program
         {

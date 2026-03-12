@@ -14,7 +14,7 @@ public class Entry
     private string _response;
     // private string _entry;
 
-    // Functions
+    // Constructor
     public Entry(string date, string prompt, string response)
     {
         _date = date;
@@ -22,15 +22,23 @@ public class Entry
         _response = response;
     }   
 
+    // Getters
+    public string GetDate()
+    {
+        return _date;
+    }
+    public string GetPrompt()
+    {
+        return _prompt;
+    }
+    public string GetResponse()
+    {
+        return _response;
+    }
+
+    // Methods
     public void DisplayEntry()
     {
-        Console.WriteLine($"\n{_date}: {_prompt}\n{_response}\n");
+        Console.WriteLine($"{_date}: {_prompt}\n{_response}\n");
     }   
-    
-    public void SetInfo(string date, string prompt, string response)
-    {
-        _response = response;
-        _date = date;
-        _prompt = prompt;
-    }
 }
