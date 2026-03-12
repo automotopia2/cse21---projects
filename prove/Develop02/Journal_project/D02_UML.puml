@@ -1,57 +1,53 @@
 @startuml JournalProgram
 
-Class JProgram
+class JournalProgram
 {
     +Main() : void
 }
 
-Class Journal
+class Journal
 {
-- _entries : List <Entry>
---
-+ LoadFromFile(filename) : void
-+ SaveToFile(filename) : void
-+ DeleteEntry(EntryIndex) : void
-+ DisplayEntries() : void
-+ AddEntries(entry) : void
+    - _entries : List<Entry>
+    --
+    +LoadFromFile(filename : string) : void
+    +SaveToFile(filename : string) : void
+    +DeleteEntry(entryIndex : int) : void
+    +DisplayEntries() : void
+    +AddEntry(entry : Entry) : void
 }
 
 class Entry
 {
--_response : string
--_date : int
--_prompt : string
---
-+Display(int date, string prompt, string response) : void
-+Entry () : void
-+GetPrompt() : string
-+GetResponse() : void
+    - _response : string
+    - _date : DateTime
+    - _prompt : string
+    --
+    +Entry(date : DateTime, prompt : string, response : string)
+    +GetResponse() : string
 }
 
 class PromptGen
 {
--_prompt : string
--_random : Random
---
-+GetPrompt() : string
+    - _prompts : List<string>
+    - _random : Random
+    --
+    +GetPrompt() : string
 }
 
 class Menu
 {
---
-+Write() : void
-+Display() : void
-+Load() : void
-+Save() : void
-+Delete() : void
-+Quit() : void
+    --
+    +Write() : void
+    +Display() : void
+    +Load() : void
+    +Save() : void
+    +Delete() : void
+    +Quit() : void
 }
 
-Journal -* Entry
-Entry -* PromptGen
-Menu -> PromptGen
-Menu -> Entry
-Menu -> Journal
-
+Journal *-- Entry
+Menu --> Journal
+Menu --> PromptGen
+JournalProgram --> Menu
 
 @enduml

@@ -22,13 +22,10 @@ public class Entry
         _response = response;
     }   
 
-    // Methods
-
-    // public string OrganizeEntry()
-    // {
-    //     _entry = ($"{_date}: {_prompt}.\n{_response}");
-    //     return _entry;
-    // }   
+    public void DisplayEntry()
+    {
+        Console.WriteLine($"\n{_date}: {_prompt}\n{_response}\n");
+    }   
     
     public void SetInfo(string date, string prompt, string response)
     {

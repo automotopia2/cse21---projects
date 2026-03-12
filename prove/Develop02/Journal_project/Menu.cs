@@ -6,6 +6,7 @@ using System.Text.Json;
 
 public class Menu
 {
+    Journal _journal = new Journal();
     private int _menuChoice;
     public int DisplayMenu()
     {
@@ -19,7 +20,6 @@ public class Menu
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToShortDateString();
         string promptfile = "prompts.txt";
-        JournalProgram newEntry = new JournalProgram();
 
             PromptGen prompt1 = new PromptGen();
             prompt1.GetPrompt(promptfile);
@@ -31,43 +31,43 @@ public class Menu
             Entry entry = new Entry(dateText, prompt1._prompt, response);
             // string entry1 = entry.OrganizeEntry();
 
-            newEntry.AddEntry(entry);
+            _journal.AddEntry(entry);
     }
 
-    public void DisplayJournalOption()
+    public void DisplayEntriesOption()
     {
-        
+        _journal.DisplayEntries();
     }
 
     public void ReadMenu(int menuChoice)
     {
-        if (menuChoice == 1)
+        if (menuChoice == 1) // Write and Entry
         {
             WriteOption();
         }
-        else if (menuChoice == 2)
+        else if (menuChoice == 2) // Display Current Entries
+        {
+            DisplayEntriesOption();
+        }
+        else if (menuChoice == 3) // Load Current Entries
         {
             
         }
-        else if (menuChoice == 3)
+        else if (menuChoice == 4) // Save Current Entries 
         {
             
         }
-        else if (menuChoice == 4)
+        else if (menuChoice == 5) // Delete Current Entries 
         {
             
         }
-        else if (menuChoice == 5)
-        {
-            
-        }
-        else if (menuChoice == 6)
+        else if (menuChoice == 6) // Quit Program
         {
             Console.WriteLine("Thank you for using the journal program! Do something journal worthy today!");
         }
         else
         {
-            
+            Console.WriteLine("I'm sorry, I did not understand that promp. Please type the number again.");
         }
     }
 }
