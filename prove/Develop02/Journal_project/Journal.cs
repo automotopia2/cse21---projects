@@ -49,7 +49,7 @@ class Journal
     {
         for(int i = 0; i<_entries.Count; i++)
         {
-            Console.Write($"Entry {i + 1}");
+            Console.Write($"Entry {i + 1}:\n");
             _entries[i].DisplayEntry();
         }
     }   
