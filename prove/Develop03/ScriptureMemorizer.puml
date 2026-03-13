@@ -1,13 +1,14 @@
 @startuml
+
 class Word 
 {
-- _text : str
+- _text : string
 - _isHidden : bool
 - _random : Random
 --
 + Word(text) : setter
 + Hide() : setter
-+ IsHidden : getter
++ IsHidden() : getter
 }
 
 class Reference
