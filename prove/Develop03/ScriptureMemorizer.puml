@@ -6,7 +6,7 @@ class Word
 - _isHidden : bool
 - _random : Random
 --
-+ Word(text) : setter
++ Word(text : string) : setter
 + Hide() : setter
 + IsHidden() : getter
 }
@@ -16,13 +16,13 @@ class Reference
 - _location : string
 - _text : string
 --
-+ Reference(location, text)
++ Reference(location : string, text : string)
 }
 
 class Scripture
 {
-+ reference : Reference
-+ text : List<Word>
++ reference() : Reference
++ text() : List<Word>
 }
 
 class Program 
