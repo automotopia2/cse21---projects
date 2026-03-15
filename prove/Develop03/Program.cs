@@ -13,7 +13,7 @@ class Program
             Console.Clear();
             scripture.Display();
             Console.WriteLine();
-            Console.Write("Press Enter to continue or type 'quit' to exit: ");
+            Console.Write("Press 'Enter' to get your scripture or type 'quit' to exit: ");
             
             string input = Console.ReadLine();
             
@@ -27,7 +27,7 @@ class Program
 
         Console.Clear();
         scripture.Display();
-        Console.WriteLine("\nKeep fighting the good fight");
+        Console.WriteLine("\nNicely done! Keep fighting the good fight!");
     }
     
 }

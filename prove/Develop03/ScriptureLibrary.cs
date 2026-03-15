@@ -4,9 +4,11 @@ using System.IO;
 
 class ScriptureLibrary
 {
+    // Variables 
     private List<Scripture> _scriptures;
     private Random _random;
 
+    // Constructor
     public ScriptureLibrary(string filePath)
     {
         _scriptures = new List<Scripture>();
@@ -14,6 +16,7 @@ class ScriptureLibrary
         LoadScriptures(filePath);
     }
 
+    // Methods
     private void LoadScriptures(string filePath)
     {
         string[] lines = File.ReadAllLines(filePath);

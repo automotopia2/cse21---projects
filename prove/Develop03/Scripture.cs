@@ -15,7 +15,6 @@ class Scripture
         _words = new List<Word>();
         _random = new Random();
 
-        // Split the text and wrap each piece in a Word object
         string[] splitWords = text.Split(' ');
         foreach (string word in splitWords)
         {
@@ -23,6 +22,7 @@ class Scripture
         }
     }
 
+    // Methods 
     public void Display()
     {
         Console.Write(_reference.GetLocation() + " ");
