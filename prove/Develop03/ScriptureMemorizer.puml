@@ -1,38 +1,56 @@
 @startuml
 
-class Word 
+class Program
 {
-- _text : string
-- _isHidden : bool
-- _random : Random
---
-+ Word(text : string) : setter
-+ Hide() : setter
-+ IsHidden() : getter
+    + Main() : void
 }
 
-class Reference
+class ScriptureLibrary
 {
-- _location : string
-- _text : string
---
-+ Reference(location : string, text : string)
+    - _scriptures : List<Scripture>
+    - _random : Random
+    --
+    + ScriptureLibrary(filePath : string)
+    - LoadScriptures(filePath : string) : void
+    + GetRandomScripture() : Scripture
 }
 
 class Scripture
 {
-+ reference() : Reference
-+ text() : List<Word>
+    - _reference : Reference
+    - _words : List<Word>
+    - _random : Random
+    --
+    + Scripture(reference : Reference, text : string)
+    + Display() : void
+    + HideRandomWords(count : int) : void
+    + IsCompleted() : bool
 }
 
-class Program 
+class Reference
 {
-+ Main() : Void
+    - _location : string
+    - _text : string
+    --
+    + Reference(location : string, text : string)
+    + GetLocation() : string
+    + GetText() : string
 }
 
-Program --* Scripture
+class Word
+{
+    - _text : string
+    - _isHidden : bool
+    --
+    + Word(text : string)
+    + Hide() : void
+    + IsHidden() : bool
+    + GetDisplayText() : string
+}
 
-Scripture --* Reference
-Scripture --* Word
+Program --> ScriptureLibrary
+ScriptureLibrary *-- Scripture 
+Scripture *-- Reference 
+Scripture *-- Word 
 
 @enduml

@@ -12,4 +12,14 @@ class Reference
         _location = location;
         _text = text;
     }
+    
+    public string GetLocation()
+    {
+        return _location;
+    }
+
+    public string GetText()
+    {
+        return _text;
+    }
 }
