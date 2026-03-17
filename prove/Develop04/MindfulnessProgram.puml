@@ -1,0 +1,55 @@
+@startuml
+
+class Program
+{
+    --
+    + Main()
+}
+
+class Menu
+{
+    -_menuChoice : int
+    --
+    + DisplayMenu() : void
+    + ReadMenu() : void
+
+}
+
+class Activity
+{
+    -_activityName
+    -_activityDescription
+    --
+    + DisplayIntroMessage() : void
+    + DisplayClosingMessage() : void
+    + Runtime(time : int) : void
+    + GetName(name) : string
+    + GetDescription(description) : string
+    + SetName() : void
+}
+
+class Breathing
+{
+    
+    --
+
+}
+
+class Reflection
+{
+
+--
+
+}
+
+class Listening
+{
+    
+    --
+    
+}
+
+
+
+
+@enduml
