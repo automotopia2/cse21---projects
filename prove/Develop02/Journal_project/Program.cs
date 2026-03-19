@@ -15,5 +15,5 @@ class JournalProgram
                 menu.ReadMenu(menuChoice);
             }
         }    
-
 }
+// I did my "exceeding requirements" by adding the ability to delete specific entries. 
