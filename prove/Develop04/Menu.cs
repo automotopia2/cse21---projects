@@ -24,31 +24,7 @@ class Menu
             }
         }    
     }
-    public void BreathPacer(int time)
-    {
-        int elapsedTime = 0;
-        
-        while (elapsedTime < time)
-        {
-            Console.Write("\n\nBreath in: ");
-            for (int i = 5; i > 0; i--)
-            {
-                Console.Write(i);
-                Thread.Sleep(1000);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                elapsedTime ++;
-                Console.Write("\b \b");
-            }
-            Console.Write("\n\nBreath out: ");
-            for (int i = 6; i > 0; i--)
-            {
-                Console.Write(i);
-                Thread.Sleep(1000);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                elapsedTime ++;
-                Console.Write("\b \b");
-            }
-        }
-        Console.WriteLine("\nGreat job!");                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
     public int GetTime()
     {
         Console.Write("How long would you like this activity to last? ");
@@ -64,34 +40,38 @@ class Menu
     
     public void ReadMenu(int choice)
     {
-        if (choice == 1)
+        while (choice != 4)
         {
-            Breathing breathing = new Breathing();
-            Console.WriteLine();
-            breathing.DisplayIntro();
-            int time = GetTime();
-            BreathPacer(time);
-        }
-        else if (choice == 2)
-        {
-            Reflection reflection = new Reflection();
-            int enteredTime = int.Parse(Console.ReadLine());
-            // while (int time < enteredTime)
-            // {
-                
-            // }
-        }
-        else if (choice == 3)
-        {
-            Listening listening = new Listening();
-        }
-        else if (choice == 4)
-        {
-            Console.WriteLine("Thank you for taking care of yourself! Have a wonderful day!");
-        }
-        else
-        {
-            Console.WriteLine("Please enter a valid number.");
+            if (choice == 1)
+            {
+                Breathing breathing = new Breathing();
+                Console.WriteLine();
+                breathing.DisplayIntro();
+                int time = GetTime();
+                Spinner();
+                breathing.BreathPacer(time);
+            }
+            else if (choice == 2)
+            {
+                Reflection reflection = new Reflection();
+                int enteredTime = int.Parse(Console.ReadLine());
+                // while (int time < enteredTime)
+                // {
+                    
+                // }
+            }
+            else if (choice == 3)
+            {
+                Listening listening = new Listening();
+            }
+            else if (choice == 4)
+            {
+                Console.WriteLine("Thank you for taking care of yourself! Have a wonderful day!");
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid number.");
+            }
         }
     }
 }

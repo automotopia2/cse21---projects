@@ -6,11 +6,10 @@ class Program
     {
         Menu menu = new Menu();
         int menuChoice = 0;
-
-        menu.Spinner();
-        // Console.WriteLine("Welcome to the Mindfulness Program!");
-        // menuChoice = menu.DisplayMenu();
-        // menu.ReadMenu(menuChoice);
+        
+        Console.WriteLine("Welcome to the Mindfulness Program!");
+        menuChoice = menu.DisplayMenu();
+        menu.ReadMenu(menuChoice);
         
     }
 }

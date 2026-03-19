@@ -10,9 +10,9 @@ class Menu
 {
     -_menuChoice : int
     --
+    + Spinner() : void
     + DisplayMenu() : void
     + ReadMenu() : void
-
 }
 
 class Activity
@@ -23,10 +23,6 @@ class Activity
     --
     + DisplayIntroMessage() : void
     + DisplayClosingMessage() : void
-    + Runtime(time : int) : void
-    + GetName(name) : string
-    + GetDescription(description) : string
-    + SetName() : void
 }
 
 class Breathing
