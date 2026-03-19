@@ -18,8 +18,8 @@ class Menu
 class Activity
 {
     -_random : Random
-    -_introMessage
-    -_closingMessage
+    -_activityName
+    -_activityDescription
     --
     + DisplayIntroMessage() : void
     + DisplayClosingMessage() : void
@@ -31,24 +31,21 @@ class Activity
 
 class Breathing
 {
-    -_activityName
-    -_activityDescription
+    
     --
     Breathing(activityName : string, activityDescription : string)
 }
 
 class Reflection
 {
-    -_activityName
-    -_activityDescription
+    
     --
 
 }
 
 class Listening
 {
-    -_activityName
-    -_activityDescription
+    
     --
     
 }

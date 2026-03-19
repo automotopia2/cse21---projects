@@ -1,18 +1,57 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks.Dataflow;
+using Microsoft.VisualBasic;
 
 class Menu
 {
     // Variables 
     private int _menuChoice;
     // Methods
-    public void Pause()
+    public void Spinner()
     {
-        Thread.Sleep(1000);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+        List<string> myList = new List<string> { "|", "/", "-", "L"};
+        Console.WriteLine("The activity will begin soon. ");
+        int spinAmount = 0;
+        while (spinAmount < 15)
+        {
+            foreach (string i in myList)
+            {
+                Console.Write(i);
+                Thread.Sleep(500);
+                Console.Write("\b \b");
+                spinAmount ++;
+            }
+        }    
+    }
+    public void BreathPacer(int time)
+    {
+        int elapsedTime = 0;
+        
+        while (elapsedTime < time)
+        {
+            Console.Write("\n\nBreath in: ");
+            for (int i = 5; i > 0; i--)
+            {
+                Console.Write(i);
+                Thread.Sleep(1000);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                elapsedTime ++;
+                Console.Write("\b \b");
+            }
+            Console.Write("\n\nBreath out: ");
+            for (int i = 6; i > 0; i--)
+            {
+                Console.Write(i);
+                Thread.Sleep(1000);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                elapsedTime ++;
+                Console.Write("\b \b");
+            }
+        }
+        Console.WriteLine("\nGreat job!");                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     }
     public int GetTime()
     {
-        Console.Write("How long would you like this activity to last?");
+        Console.Write("How long would you like this activity to last? ");
         int time = int.Parse(Console.ReadLine());
         return time;
     }
@@ -28,17 +67,19 @@ class Menu
         if (choice == 1)
         {
             Breathing breathing = new Breathing();
+            Console.WriteLine();
             breathing.DisplayIntro();
-
+            int time = GetTime();
+            BreathPacer(time);
         }
         else if (choice == 2)
         {
             Reflection reflection = new Reflection();
-            int time = int.Parse(Console.ReadLine());
-            while (int time < entered time)
-            {
+            int enteredTime = int.Parse(Console.ReadLine());
+            // while (int time < enteredTime)
+            // {
                 
-            }
+            // }
         }
         else if (choice == 3)
         {
