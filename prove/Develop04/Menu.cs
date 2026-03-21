@@ -33,15 +33,13 @@ class Menu
     }
     public int DisplayMenu()
     {
-        Console.Write("What would Activity would you like to do? \n1) Breathing Activity \n2) Reflection Activity \n3) Listening Activity \nEnter the number correlating with the activity you would like to do here: ");
+        Console.Write("What would Activity would you like to do? \n1) Breathing Activity \n2) Reflection Activity \n3) Listening Activity \n4) Quit Program \nEnter the number correlating with the activity you would like to do here: ");
         _menuChoice = int.Parse(Console.ReadLine());
         return _menuChoice;
     }
     
     public void ReadMenu(int choice)
     {
-        while (choice != 4)
-        {
             if (choice == 1)
             {
                 Breathing breathing = new Breathing();
@@ -72,6 +70,5 @@ class Menu
             {
                 Console.WriteLine("Please enter a valid number.");
             }
-        }
     }
 }
