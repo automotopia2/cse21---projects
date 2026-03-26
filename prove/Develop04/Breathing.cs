@@ -5,17 +5,22 @@ class Breathing : Activity
     // Variables 
 
     // Constructor
-    public Breathing() : base("Breathing", "This activity will help you relax by walking you through a timed breathing exercise.")
+    public Breathing() : base("Welcome to the Breathing Activity.", "This activity will help you relax by walking you through a timed breathing exercise.")
     {
         
     }
     public void BreathPacer(int time)
     {
         int elapsedTime = 0;
+            Console.Clear();
+            Console.WriteLine("Get Ready...");
+            Thread.Sleep(3000);
+            Console.WriteLine("and...");
+            Thread.Sleep(2000);
         
-        while (elapsedTime < time)
+        while (elapsedTime < time )
         {
-            Console.Write("\n\nBreath in: ");
+            Console.Write("\nInhale... ");
             for (int i = 5; i > 0; i--)
             {
                 Console.Write(i);
@@ -23,7 +28,7 @@ class Breathing : Activity
                 elapsedTime ++;
                 Console.Write("\b \b");
             }
-            Console.Write("\n\nBreath out: ");
+            Console.Write("\nExhale... ");
             for (int i = 6; i > 0; i--)
             {
                 Console.Write(i);
@@ -31,7 +36,10 @@ class Breathing : Activity
                 elapsedTime ++;
                 Console.Write("\b \b");
             }
+            Console.WriteLine();
         }
-        Console.WriteLine("\nGreat job!"); 
+        Console.Clear();
+        Console.WriteLine($"\nGreat job! You completed another {time} seconds of the breathing exercise."); 
+        Thread.Sleep(8000);
     }     
 }

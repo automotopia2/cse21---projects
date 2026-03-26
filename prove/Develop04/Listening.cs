@@ -9,4 +9,18 @@ class Listening : Activity
     {
         
     }
+
+    public void Listener(int time)
+    {
+        int elapsedTime = 0;
+        
+        PromptGen2 prompt1 = new PromptGen2();
+        while (elapsedTime < time)
+        {
+            
+        }
+        Console.Clear();
+        Console.WriteLine($"\nGreat job! You completed another {time} seconds of the Reflection exercise."); 
+        Thread.Sleep(8000);
+    }
 }

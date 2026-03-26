@@ -16,6 +16,25 @@ class Activity
     public void DisplayIntro()
     {
         Console.WriteLine($"{_name}");
+        Console.WriteLine();
         Console.WriteLine($"{_description}");
+    }
+    public void Spinner(int spinnerLength)
+    {
+        string emDash = "\u2014";
+        Console.Clear();
+        List<string> myList = new List<string> { "|", "/", emDash, @"\"};
+        Console.WriteLine("The activity will begin soon. ");
+        int spinAmount = 0;
+        while (spinAmount < spinnerLength*2)
+        {
+            foreach (string i in myList)
+            {
+                Console.Write(i);
+                Thread.Sleep(500);
+                Console.Write("\b \b");
+                spinAmount ++;
+            }
+        }    
     }
 }

@@ -10,7 +10,9 @@ class Menu
     // Methods
     public void Spinner()
     {
-        List<string> myList = new List<string> { "|", "/", "-", "L"};
+        string emDash = "\u2014";
+        Console.Clear();
+        List<string> myList = new List<string> { "|", "/", emDash, @"\"};
         Console.WriteLine("The activity will begin soon. ");
         int spinAmount = 0;
         while (spinAmount < 15)
@@ -42,33 +44,46 @@ class Menu
     {
             if (choice == 1)
             {
+                Console.Clear();
                 Breathing breathing = new Breathing();
-                Console.WriteLine();
                 breathing.DisplayIntro();
+                Console.WriteLine();
                 int time = GetTime();
-                Spinner();
+                breathing.Spinner(5);
                 breathing.BreathPacer(time);
             }
             else if (choice == 2)
             {
+                Console.Clear();
                 Reflection reflection = new Reflection();
-                int enteredTime = int.Parse(Console.ReadLine());
-                // while (int time < enteredTime)
-                // {
-                    
-                // }
+                reflection.DisplayIntro();
+                Console.WriteLine();
+                int time = GetTime();
+                Console.Clear();
+                Console.Write("Get Ready...  ");
+                reflection.Spinner(5);
+                // DisplayPrompt
+
             }
             else if (choice == 3)
             {
+                Console.Clear();
                 Listening listening = new Listening();
+                listening.DisplayIntro();
+                Console.WriteLine();
+                int time = GetTime();
+                listening.Spinner(5);
             }
             else if (choice == 4)
             {
+                Console.Clear();
                 Console.WriteLine("Thank you for taking care of yourself! Have a wonderful day!");
             }
             else
             {
+                Console.Clear();
                 Console.WriteLine("Please enter a valid number.");
+                Thread.Sleep(8000);
             }
     }
 }

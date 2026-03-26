@@ -10,6 +10,7 @@ class Program
         Console.WriteLine("Welcome to the Mindfulness Program!");
         while (menuChoice != 4)
         {
+            Console.Clear();
             menuChoice = menu.DisplayMenu();
             menu.ReadMenu(menuChoice);
         
