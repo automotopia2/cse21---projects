@@ -6,7 +6,7 @@ class Activity
     // Variables
     private string _name;
     private string _description;
-    public Stopwatch stopwatch = new Stopwatch();
+    // public Stopwatch stopwatch = new Stopwatch();
 
     // Methods
     public Activity(string name, string description)
@@ -23,6 +23,7 @@ class Activity
     }
     public void Spinner(int spinnerLength)
     {
+        Stopwatch stopwatch = new Stopwatch();
         string emDash = "\u2014";
         List<string> myList = new List<string> { "|", "/", emDash, @"\"};
         // Console.WriteLine("The activity will begin soon. ");

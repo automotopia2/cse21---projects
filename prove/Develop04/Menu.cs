@@ -9,26 +9,8 @@ class Menu
 {
     // Variables 
     private int _menuChoice;
-    // Methods
-    public void Spinner()
-    {
-        string emDash = "\u2014";
-        Console.Clear();
-        List<string> myList = new List<string> { "|", "/", emDash, @"\"};
-        Console.WriteLine("The activity will begin soon. ");
-        int spinAmount = 0;
-        while (spinAmount < 15)
-        {
-            foreach (string i in myList)
-            {
-                Console.Write(i);
-                Thread.Sleep(500);
-                Console.Write("\b \b");
-                spinAmount ++;
-            }
-        }    
-    }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+    
+    // Methods                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
     public int GetTime()
     {
         Console.Write("How long would you like this activity to last? ");
@@ -37,7 +19,7 @@ class Menu
     }
     public int DisplayMenu()
     {
-        Console.Write("What would Activity would you like to do? \n1) Breathing Activity \n2) Reflection Activity \n3) Listening Activity \n4) Quit Program \nEnter the number correlating with the activity you would like to do here: ");
+        Console.Write("What would Activity would you like to do? \n1) Breathing Activity \n2) Reflection Activity \n3) Listening Activity \n4) Empowerment Acitivity \n5) Quit Program \nEnter the number correlating with the activity you would like to do here: ");
         _menuChoice = int.Parse(Console.ReadLine());
         return _menuChoice;
     }
@@ -72,9 +54,18 @@ class Menu
                 listening.DisplayIntro();
                 Console.WriteLine();
                 int time = GetTime();
-                listening.Spinner(5);
+                listening.Listener(time);
             }
             else if (choice == 4)
+            {
+                Console.Clear();
+                Empowerment empowerment = new Empowerment();
+                empowerment.DisplayIntro();
+                Console.WriteLine();
+                int time = GetTime();
+                empowerment.Empower(time);
+            }
+            else if (choice == 5)
             {
                 Console.Clear();
                 Console.WriteLine("Thank you for taking care of yourself! Have a wonderful day!");

@@ -10,7 +10,7 @@ class Program
         Console.Clear();
         Console.WriteLine("Welcome to the Mindfulness Program!\n");
         Thread.Sleep(5000);
-        while (menuChoice != 4)
+        while (menuChoice != 5)
         {
             Console.Clear();
             menuChoice = menu.DisplayMenu();
@@ -19,3 +19,5 @@ class Program
         }
     }    
 }
+
+// For the exceeding expectations, I added a 4th activity that displays encouraging messages and reminders to take care of yourself. 

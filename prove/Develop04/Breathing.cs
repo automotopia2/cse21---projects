@@ -7,7 +7,7 @@ class Breathing : Activity
     // Variables 
 
     // Constructor
-    public Breathing() : base("Welcome to the Breathing Activity.", "This activity will help you relax by walking you through a timed breathing exercise.")
+    public Breathing() : base("Welcome to the Breathing Activity.", "This activity will help you relax by walking you through a timed breathing exercise. Focus on your rate of breathing to help you body feel at ease.")
     {
         
     }

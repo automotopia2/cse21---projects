@@ -10,42 +10,78 @@ class Menu
 {
     -_menuChoice : int
     --
-    + Spinner() : void
-    + DisplayMenu() : void
-    + ReadMenu() : void
+    + GetTime() : int
+    + DisplayMenu() : int
+    + ReadMenu(choice : int) : void
 }
 
 class Activity
 {
-    -_random : Random
     -_activityName
     -_activityDescription
     --
-    + DisplayIntroMessage() : void
-    + DisplayClosingMessage() : void
+    + Activity(name : string, description: string)
+    + DisplayIntro() : void
+    + Spinner(spinnerLength : int) : void
 }
 
 class Breathing
 {
     
     --
-    Breathing(activityName : string, activityDescription : string)
+    + Breathing()
+    + BreathPacer(time : int) : void
 }
 
 class Reflection
 {
     
     --
-
+    + Reflection() 
+    + Reflector(time : int) : void
 }
 
 class Listening
 {
     
     --
-    
+    + Listening()
+    + Listener(time : int) : void
 }
 
+class Empowerment
+{
+
+    --
+    + Empowerment()
+    + Empower(time : int) : void
+}
+
+class PromptGen2
+{
+    -_prompt : string
+    -_randint : Random
+    --
+    + GetPrompt(promptFile : string) : void
+    + DisplayPrompt() : void
+    + DisaplyPromptQuestion() : void
+}
+
+Program --> Menu
+
+Menu --> Breathing
+Menu --> Reflection
+Menu --> Listening
+Menu --> Empowerment
+
+Activity <|-- Breathing
+Activity <|-- Reflection
+Activity <|-- Listening
+Activity <|-- Empowerment
+
+Reflection ---> PromptGen2
+Listening ---> PromptGen2
+Empowerment ---> PromptGen2
 
 
 

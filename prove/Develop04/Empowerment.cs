@@ -2,35 +2,27 @@ using System;
 using System.Diagnostics;
 
 
-class Reflection : Activity
+class Empowerment : Activity
 {
     // Variables 
 
     // Constructor
-    public Reflection() : base("Welcome to the Reflection Activity.", "This activity will give you an opportunity to reflect on a singular moment or event by asking you guiding questions.")
+    public Empowerment() : base("Welcome to the Empowerment Activity.", "This activity will provide you with positive messages and reminders. Never forget to take care of yourself and always remember your worth.")
     {
         
     }
 
-    // Methods 
-    public void Reflector(int time)
+    // Methods
+    public void Empower(int time)
     {
-        Stopwatch reflector = new Stopwatch();
-        string promptLibrary = "Prompts.txt";
-        string promptQuestionLibrary = "PromptQuestion.txt";
-        
-        PromptGen2 prompt1 = new PromptGen2();
-        PromptGen2 promptQuestion = new PromptGen2();
-        prompt1.GetPrompt(promptLibrary);
+        string affirmation = "Affirmations.txt";
+        Stopwatch empower = new Stopwatch();        
+        PromptGen2 affirmationPrompt = new PromptGen2();
 
-        Console.WriteLine("Get ready...");
+
+        Console.Write("Get Ready...");
         Spinner(5);
         Console.WriteLine();
-        Console.WriteLine("\nConsider the following prompt:\n");
-        prompt1.DisplayPrompt();
-        Console.WriteLine();
-        Console.WriteLine("Press enter when you have something in mind.");
-        Console.ReadLine();
         Console.WriteLine("\nNow ponder and think on the questions that pop up.");
         Console.Write("You may begin in ");
         for (int i = 5; i > 0; i--)
@@ -40,18 +32,17 @@ class Reflection : Activity
                 Console.Write("\b \b");
             }
         Console.Clear();
-        reflector.Start();
+        empower.Start();
 
-        while (reflector.Elapsed.TotalSeconds < time)
+        while (empower.Elapsed.TotalSeconds < time)
         {
-            promptQuestion.GetPrompt(promptQuestionLibrary);
-            promptQuestion.DisplayPromptQuestion();
+            affirmationPrompt.GetPrompt(affirmation);
+            affirmationPrompt.DisplayPromptQuestion();
             Console.WriteLine("\n");
             Spinner(8);
         }
         Console.Clear();
-        Console.WriteLine($"\nGreat job! You completed another {time} seconds of the Reflection exercise."); 
+        Console.WriteLine($"\nGreat job! You completed another {time} seconds of the Empowerment Activity."); 
         Thread.Sleep(6000);
-    }     
-    
+    }
 }
