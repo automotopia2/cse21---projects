@@ -7,6 +7,7 @@ public class PromptGen2
 {
     // Variables
     public string _prompt;
+    // public string _promptQuestion;
 
     private Random _randint = new Random(); 
     

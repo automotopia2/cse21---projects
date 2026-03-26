@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics;
+
 
 class Reflection : Activity
 {
@@ -12,31 +14,36 @@ class Reflection : Activity
 
     public void Reflector(int time)
     {
-        int elapsedTime = 0;
-        string promptLibrary = "Promps.txt";
+        Stopwatch reflector = new Stopwatch();
+        string promptLibrary = "Prompts.txt";
         string promptQuestionLibrary = "PromptQuestion.txt";
         
         PromptGen2 prompt1 = new PromptGen2();
         PromptGen2 promptQuestion = new PromptGen2();
         prompt1.GetPrompt(promptLibrary);
+
+        Console.WriteLine("Get ready...");
+        Spinner(5);
+        Console.WriteLine();
+        Console.WriteLine("\nConsider the following prompt:\n");
         prompt1.DisplayPrompt();
         Console.WriteLine();
         Console.WriteLine("Press enter when you have something in mind.");
         Console.ReadLine();
         Console.Clear();
-        Console.WriteLine("Get ready...");
-        Console.WriteLine();
+        reflector.Start();
 
-        while (elapsedTime < time)
+        while (reflector.Elapsed.TotalSeconds < time)
         {
             promptQuestion.GetPrompt(promptQuestionLibrary);
             promptQuestion.DisplayPromptQuestion();
+            Console.WriteLine("\n");
             Spinner(8);
-
+            Thread.Sleep(3000);
         }
         Console.Clear();
         Console.WriteLine($"\nGreat job! You completed another {time} seconds of the Reflection exercise."); 
-        Thread.Sleep(8000);
+        Thread.Sleep(6000);
     }     
     
 }

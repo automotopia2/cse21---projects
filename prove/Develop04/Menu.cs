@@ -2,6 +2,8 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks.Dataflow;
 using Microsoft.VisualBasic;
+using System.Diagnostics;
+
 
 class Menu
 {
@@ -49,7 +51,6 @@ class Menu
                 breathing.DisplayIntro();
                 Console.WriteLine();
                 int time = GetTime();
-                breathing.Spinner(5);
                 breathing.BreathPacer(time);
             }
             else if (choice == 2)
@@ -60,8 +61,7 @@ class Menu
                 Console.WriteLine();
                 int time = GetTime();
                 Console.Clear();
-                Console.Write("Get Ready...  ");
-                reflection.Spinner(5);
+                reflection.Reflector(time);
                 // DisplayPrompt
 
             }

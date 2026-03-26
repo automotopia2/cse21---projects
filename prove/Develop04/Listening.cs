@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics;
+
 
 class Listening : Activity
 {
@@ -12,15 +14,16 @@ class Listening : Activity
 
     public void Listener(int time)
     {
-        int elapsedTime = 0;
-        
+        Stopwatch listening = new Stopwatch();        
         PromptGen2 prompt1 = new PromptGen2();
-        while (elapsedTime < time)
+
+        listening.Start();
+        while (listening.Elapsed.TotalSeconds < time)
         {
             
         }
         Console.Clear();
         Console.WriteLine($"\nGreat job! You completed another {time} seconds of the Reflection exercise."); 
-        Thread.Sleep(8000);
+        Thread.Sleep(6000);
     }
 }

@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics;
+
 
 class Breathing : Activity
 {
@@ -11,21 +13,24 @@ class Breathing : Activity
     }
     public void BreathPacer(int time)
     {
-        int elapsedTime = 0;
-            Console.Clear();
-            Console.WriteLine("Get Ready...");
-            Thread.Sleep(3000);
-            Console.WriteLine("and...");
-            Thread.Sleep(2000);
-        
-        while (elapsedTime < time )
+        Stopwatch breathPacer = new Stopwatch();
+        Console.Clear();
+        Console.WriteLine("The activity will begin soon. ");
+        Spinner(5);
+        Console.Clear();
+        Console.WriteLine("Get Ready...");
+        Thread.Sleep(3000);
+        Console.WriteLine("and...");
+        Thread.Sleep(2000);
+        breathPacer.Start();
+
+        while (breathPacer.Elapsed.TotalSeconds < time )
         {
             Console.Write("\nInhale... ");
             for (int i = 5; i > 0; i--)
             {
                 Console.Write(i);
                 Thread.Sleep(1000);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                elapsedTime ++;
                 Console.Write("\b \b");
             }
             Console.Write("\nExhale... ");
@@ -33,13 +38,12 @@ class Breathing : Activity
             {
                 Console.Write(i);
                 Thread.Sleep(1000);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                elapsedTime ++;
                 Console.Write("\b \b");
             }
             Console.WriteLine();
         }
         Console.Clear();
         Console.WriteLine($"\nGreat job! You completed another {time} seconds of the breathing exercise."); 
-        Thread.Sleep(8000);
+        Thread.Sleep(6000);
     }     
 }

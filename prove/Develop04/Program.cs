@@ -7,7 +7,9 @@ class Program
         Menu menu = new Menu();
         int menuChoice = 0;
         
-        Console.WriteLine("Welcome to the Mindfulness Program!");
+        Console.Clear();
+        Console.WriteLine("Welcome to the Mindfulness Program!\n");
+        Thread.Sleep(5000);
         while (menuChoice != 4)
         {
             Console.Clear();
