@@ -42,4 +42,9 @@ class Goal
     {
         return $"{_name}|{_description}|{_points}";
     }
+
+    public void DisplayPoints()
+    {
+        Console.WriteLine($"Points: {_points}");
+    }
 }
