@@ -25,17 +25,23 @@ class Menu
             else if (choice == 2)
             {
                 Console.Clear();
-                
+                _tracker.ListGoals();
+                Console.Write("\nPress enter when you are done looking at your goals.");
+                Console.ReadLine();
             }
-            else if (choice == 3)
+            else if (choice == 3) // Save Goals
             {
+                string filename = "SavedGoals.txt";
                 Console.Clear();
-                
+                _tracker.SaveGoals(filename);
+                Thread.Sleep(3000);
             }
-            else if (choice == 4)
+            else if (choice == 4) // Load Goals
             {
+                string filename = "SavedGoals.txt";
                 Console.Clear();
-                
+                _tracker.LoadGoals(filename);
+                Thread.Sleep(2000);
             }
             else if (choice == 5)
             {
@@ -47,7 +53,10 @@ class Menu
             else if (choice == 6)
             {
                 Console.Clear();
-                
+                _tracker.ListGoals();
+                Console.Write("Enter the nummber of the goal you would like to delete:  ");
+                int goalsIndex = int.Parse(Console.ReadLine());
+                _tracker.DeleteGoal(goalsIndex - 1);
             }
             else if (choice == 7)
             {

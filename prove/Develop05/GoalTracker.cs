@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.IO;
 
 class GoalTracker
 {
@@ -132,16 +134,8 @@ class GoalTracker
         Console.WriteLine("Goals loaded successfully!");
     }
 
-    public void DeleteGoal(int index)
+    public void DeleteGoal(int goalsIndex)
     {
-        if (index >= 0 && index < _goals.Count)
-        {
-            Console.WriteLine($"'{_goals[index].GetDetailsString()}' has been deleted.");
-            _goals.RemoveAt(index);
-        }
-        else
-        {
-            Console.WriteLine("Invalid goal number.");
-        }
+        _goals.RemoveAt(goalsIndex);
     }
 }
