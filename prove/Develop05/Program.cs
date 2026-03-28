@@ -10,6 +10,7 @@ class Program
         while (menuChoice != 7)
         {
             Console.Clear();
+
             menuChoice = menu.DisplayMenu();
             menu.ReadMenu(menuChoice);
         
