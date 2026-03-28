@@ -51,6 +51,6 @@ class ChecklistGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return $"ChecklistGoal|{base.GetStringRepresentation()}|{_timesCompleted}|{_requiredTimes}|{_bonusPoints}";
+        return $"ChecklistGoal|{GetName()}|{GetDescription()}|{GetPoints()}|{_timesCompleted}|{_requiredTimes}|{_bonusPoints}";
     }
 }

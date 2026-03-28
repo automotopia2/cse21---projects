@@ -1,6 +1,6 @@
 using System;
 
-class Goal
+abstract class Goal
 {
     private string _name;
     private string _description;
@@ -28,23 +28,7 @@ class Goal
         return _points;
     }
 
-    public virtual int RecordEvent()
-    {
-        return _points;
-    }
-
-    public virtual string GetDetailsString()
-    {
-        return $"[ ] {_name} - {_description}";
-    }
-
-    public virtual string GetStringRepresentation()
-    {
-        return $"{_name}|{_description}|{_points}";
-    }
-
-    public void DisplayPoints()
-    {
-        Console.WriteLine($"Points: {_points}");
-    }
+    public abstract int RecordEvent();
+    public abstract string GetDetailsString();
+    public abstract string GetStringRepresentation();
 }

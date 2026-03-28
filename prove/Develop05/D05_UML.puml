@@ -1,10 +1,15 @@
 @startuml
 abstract class Goal {
-  # _shortName : string
+  # _name : string
   # _description : string
   # _points : int
-  + Goal(name: string, desc: string, points: int)
+  --
+  + Goal(name : string, description : string, points : int)
+  + GetName() : string
+  + GetPoint() : int
   + {abstract} RecordEvent() : void
+  + GetDetailsString() : virtual string
+  + GetStringRepresentation() : virtual string
   + {abstract} IsComplete() : bool
   + virtual GetDetailsString() : string
   + virtual GetStringRepresentation() : string
