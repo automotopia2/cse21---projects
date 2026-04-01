@@ -33,6 +33,7 @@ class Video
         Console.WriteLine($"Runtime: {_length} seconds");
         Console.WriteLine();
         Console.WriteLine("--COMMENTS--");
+        Console.WriteLine($"\nNumber of comments: {_comments.Count}");
         foreach (Comment comment in _comments)
         {
             comment.DisplayComment();
