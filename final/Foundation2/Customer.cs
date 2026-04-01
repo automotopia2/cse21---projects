@@ -13,4 +13,26 @@ class Customer
         _address = address;
     }
     // Methods
+    public string GetName()
+    {
+        return _name;
+    }
+    public void SetName(string name)
+    {
+        _name = name; 
+    }
+    public Address GetAddress()
+    {
+        return _address;
+    }
+
+    public void SetAddress(Address address)
+    {
+        _address = address;
+    }
+
+    public bool IsUSA()
+    {
+        return _address.IsUSA();
+    }
 }
