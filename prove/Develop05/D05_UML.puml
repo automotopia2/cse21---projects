@@ -1,47 +1,81 @@
 @startuml
+
+
+class Program 
+{
+  + Main() : void
+}
+
+class Menu 
+{
+    -_menuChoice : int
+    –_tracker : GoalTracker
+    --
+    + DisplayMenu() : int
+    + ReadMenu(choice : int) : void
+}
+
 abstract class Goal {
-  # _name : string
-  # _description : string
-  # _points : int
-  --
-  + Goal(name : string, description : string, points : int)
-  + GetName() : string
-  + GetPoint() : int
-  + {abstract} RecordEvent() : void
-  + GetDetailsString() : virtual string
-  + GetStringRepresentation() : virtual string
-  + {abstract} IsComplete() : bool
-  + virtual GetDetailsString() : string
-  + virtual GetStringRepresentation() : string
+    - _name : string
+    - _description : string
+    - _points : int
+    --
+    + Goal(name : string, description : string, points : int)
+    + GetName() : string
+    + GetDescription() : string
+    + GetPoints() : int
+    + {abstract} RecordEvent() : int
+    + {abstract} GetDetailsString() : string
+    + {abstract} GetStringRepresentation() : string
 }
 
 class SimpleGoal {
-  - _isComplete : bool
-  + RecordEvent() : void
-  + IsComplete() : bool
+    - _isComplete : bool
+    --
+    + SimpleGoal(name, description, points)
+    + SimpleGoal(name, description, points, isComplete)
+    + RecordEvent() : int
+    + GetDetailsString() : string
+    + GetStringRepresentation() : string
+}
+
+class EternalGoal {
+    + EternalGoal(name, description, points)
+    + RecordEvent() : int
+    + GetDetailsString() : string
+    + GetStringRepresentation() : string
 }
 
 class ChecklistGoal {
-  - _amountCompleted : int
-  - _target : int
-  - _bonus : int
-  + RecordEvent() : void
-  + IsComplete() : bool
+    - _timesCompleted : int
+    - _requiredTimes : int
+    - _bonusPoints : int
+    --
+    + ChecklistGoal(name, description, points, requiredTimes, bonusPoints)
+    + ChecklistGoal(name, description, points, requiredTimes, bonusPoints, timesCompleted)
+    + RecordEvent() : int
+    + GetDetailsString() : string
+    + GetStringRepresentation() : string
 }
 
-class GoalManager {
-  - _goals : List<Goal>
-  - _score : int
-  + Start() : void
-  + DisplayPlayerInfo() : void
-  + CreateGoal() : void
-  + RecordEvent() : void
-  + SaveGoals() : void
-  + LoadGoals() : void
+class GoalTracker{
+    -_goals : List<Goal>()
+    -_score : int
+    --
+    + Score() : int
+    + CreateGoal() : void
+    + AddGoal(goal : Goal) : void
+    + ListGoals() : void
+    + RecordEvent() : void
+    + SaveGoals(filename : string) : void
+    + LoadGoals(filename : string) : void
+    + DeleteGoals(filename : string) : void
 }
 
 Goal <|-- SimpleGoal
 Goal <|-- EternalGoal
 Goal <|-- ChecklistGoal
-GoalManager o-- Goal
+Goal --o GoalTracker
+Program --> Menu
+Menu --> GoalTracker
 @enduml
