@@ -2,7 +2,7 @@
 
 class Program 
 {
-    + main()
+    + main() : void
 }
 
 class Video 

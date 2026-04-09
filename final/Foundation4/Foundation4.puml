@@ -1,0 +1,57 @@
+@startuml
+
+class Program
+{
+    + Main() : void
+}
+
+class Activity
+{
+    -_date : DateTime
+    -_time : double
+    -_activityType : string
+    --
+    + Activity(date : DateTime, time : double, activityType : string)
+    + GetTime() : double
+    + CalculateDistance() : double
+    + CalculateSpeed() : double
+    + CalculatePace() : double
+    + DisplaySummary() : string
+}
+
+class Running
+{
+    -_distance : double
+    --
+    + Running(date : DateTime, time : double, distance : double)
+    + CalculateDistance() : double
+    + CalculateSpeed() : double
+    + CalculatePace() : double
+}
+
+class StationaryBike
+{
+    -_speed : double
+    --
+    + StationaryBike(date : DateTime, time : double, speed : double)
+    + CalculateDistance() : double
+    + CalculateSpeed() : double
+    + CalculatePace() : double
+}
+
+class LapSwim
+{
+    -_laps : double
+    --
+    + LapSwim(date : DateTime, time : double, laps : double)
+    + CalculateDistance() : double
+    + CalculateSpeed() : double
+    + CalculatePace() : double
+}
+
+Program --> Activity
+Running --|> Activity
+StationaryBike --|> Activity
+LapSwim --|> Activity
+
+@enduml
