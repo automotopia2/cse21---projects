@@ -1,0 +1,30 @@
+@startuml
+
+class Program 
+{
+    + Main()
+}
+
+class Event 
+{
+    -_title : string
+    -_description : string
+    -_dateTime : DateTime
+    -_address : Address
+    --
+    + Even(title : string, description : string, dateTime : DateTime, address : Address)
+    + DisplayIntro() : void 
+    + DisplayWhenWhere() : void
+}
+
+class Lecture 
+{
+    -_speaker : string
+    -_capacity : int
+    --
+    + Lecture (speaker : string, capacity : int, dateTime : DateTime, address : Address)
+    + DisplaySpeakCap() : void
+}
+
+
+@enduml
