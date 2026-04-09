@@ -1,0 +1,43 @@
+@startuml
+
+class Program 
+{
+    + main()
+}
+
+class Video 
+{
+    -_title : string
+    -_author : string
+    -_length : int
+    -_comments : List<Comment>
+    --
+    + Video(title : string, author : string, length : int)
+    + ReturnNumberOfComments() : int
+    + AddComment(comment : Comment)
+    + DisplayVideo() : void
+}
+
+class Comment
+{
+    -_commentAuth : string
+    -_commentText : string
+    --
+    + Comment(commentAuth : string, commentText : string)
+    + DisplayComment() : void
+}
+
+class VideoLibrary
+{
+    -_videos : List<Video>
+    --
+    + AddVideo(video : Video) : void
+    + DisplayVideos() : void
+}
+
+Program --> VideoLibrary
+VideoLibrary --> Video
+Video --> Comment
+
+
+@enduml

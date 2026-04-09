@@ -1,0 +1,80 @@
+@startuml
+
+class Program
+{
+    + Main()
+}
+
+class Order
+{
+    -_customer : Customer
+    -_products : List<Product>
+    --
+    + Order(customer : Customer)
+    + GetCustomer() : Customer
+    + SetCustomer(customer : Customer) : void
+    + SetProducts(products : List<Product>) : void
+    + AddProduct(product : Product) : void
+    + FinalPrice() : double
+    + PackingLabel() : string
+    + ShippingLabel() : string
+}
+
+class Customer
+{
+    -_name : string
+    -_address : Address
+    --
+    + Customer(name : string, address : Address)
+    + GetName() : string
+    + SetName(name : string) : void
+    + GetAddress() : Address
+    + SetAddress(address : Address) : void
+    + IsUSA() : bool
+}
+
+class Product
+{
+    -_productName : string
+    -_productID : int
+    -_pricePer : double
+    -_quantity : int
+    --
+    + Product(name : string, ID : int, pricePer : double, quantity : int)
+    + GetProductName() : string
+    + SetProductName(productName : string) : void
+    + GetProductID() : int
+    + SetProductID(productID : int) : void
+    + GetPricePer() : double
+    + SetPricePer(pricePer : double) : void
+    + GetQuantity() : int
+    + SetQuantity(quantity : int) : void
+    + TotalPrice() : double
+}
+
+class Address
+{
+    -_streetAddress : string
+    -_city : string
+    -_state : string
+    -_country : string
+    --
+    + Address(streetAddress : string, city : string, state : string, country : string)
+    + GetStreetAddress() : string
+    + SetStreetAddress(streetAddress : string) : void
+    + GetCity() : string
+    + SetCity(city : string) : void
+    + GetState() : string
+    + SetState(state : string) : void
+    + GetCountry() : string
+    + SetCountry(country : string) : void
+    + IsUSA() : bool
+    + GetFullAddress() : string
+}
+
+Program --> Order
+Order --> Customer
+Order --> Product
+Customer --> Address
+
+@enduml
