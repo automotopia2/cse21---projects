@@ -12,7 +12,7 @@ class Event
     -_dateTime : DateTime
     -_address : Address
     --
-    + Even(title : string, description : string, dateTime : DateTime, address : Address)
+    + Event(title : string, description : string, dateTime : DateTime, address : Address)
     + DisplayIntro() : void 
     + DisplayWhenWhere() : void
 }
@@ -26,5 +26,36 @@ class Lecture
     + DisplaySpeakCap() : void
 }
 
+class Reception
+{
+    -_rsvpEmail : string
+    --
+    + Reception(rsvpEmail : string, title : string, description : string, dateTime : DateTime, address : Address)
+    + DisplayRsvpEmail() : void
+}
+
+class OutdoorGather
+{
+    -_weather : string
+    --
+    + OutdoorGather(weather : string, title : string, description : string, dateTime : DateTime, address : Address)
+    + DisplayWeather() : void
+}
+
+class Address 
+{
+    -_streetAddress : string
+    -_city : string
+    -_state : string
+    --
+    + Address(streetAddress : string, city : string, state : string)
+    + GetFullAddress() : string
+}
+
+Program --> Event
+Lecture --|> Event
+Reception --|> Event
+OutdoorGather --|> Event
+Event --> Address
 
 @enduml
